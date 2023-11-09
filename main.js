@@ -1,13 +1,48 @@
-let myArray = ["Ali","Ahmed","Talha","Parsa","Anjum"];
-let addFriendInput = document.getElementById("addFriend");
-let addNewBtn= document.getElementById("addNew");
-let table = document.getElementById("output");
-let para = document.getElementById("para");
+let myArray = ['John', 'Alice', 'Bob'];
 
-let a = function(){
-    para.innerText = addFriendInput.value;
-};
+const addFriendInput = document.getElementById('addFriend');
+const addFriendButton = document.getElementById('addNew');
+const outputTable = document.getElementById('output');
 
+addFriendButton.addEventListener('click', () => {
+    const newFriend = addFriendInput.value;
+    if (newFriend.trim() !== '') {
+        myArray.push(newFriend);
+        buildPageContent();
+        addFriendInput.value = ''; 
+    }
+});
 
+function buildPageContent() {
+    outputTable.innerHTML = '';
+    myArray.forEach((person, index) => {
+        createTableRow(index, person);
+    });
+}
 
+function createTableRow(index, name) {
+    const tableRow = document.createElement('tr');
+    
+    const indexCell = document.createElement('td');
+    indexCell.textContent = index + 1;
+    tableRow.appendChild(indexCell);
+    
+    const nameCell = document.createElement('td');
+    nameCell.textContent = name;
+    tableRow.appendChild(nameCell);
+    
+    const voteCell = document.createElement('td');
+    voteCell.textContent = 0;
+    tableRow.appendChild(voteCell);
+
+    outputTable.appendChild(tableRow);
+
+    tableRow.addEventListener('click', () => {
+        let currentVotes = parseInt(voteCell.textContent);
+        currentVotes++;
+        voteCell.textContent = currentVotes;
+    });
+}
+
+buildPageContent();
 
