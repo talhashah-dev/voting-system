@@ -13,13 +13,13 @@ body{
 }
 
 .container{
-    height: 200px;
-    width: 50%;
-    background-color: aqua;
+    background-color: transparent;
     border: 2px;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 150px;
+    border-radius: 5px;
 }
 
 #input{
@@ -30,7 +30,7 @@ body{
     border-radius: 2px;
     outline: none;
     font-size: 16px;
-    transition: all 0.5s;
+    transition: all 0.4s;
 }
 
 #input:hover{
