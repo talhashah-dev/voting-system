@@ -30,7 +30,7 @@ body{
     border-radius: 2px;
     outline: none;
     font-size: 16px;
-    transition: all 0.4s;
+    /* transition: all 0.4s; */
 }
 
 /* #addFriend:hover{
@@ -40,7 +40,7 @@ body{
 #addNew{
     padding: 10px;
     height: 40px;
-    font-size: 14px;
+    font-size: 16px;
     border: none;
 }
 

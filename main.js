@@ -5,18 +5,26 @@ const addFriendButton = document.getElementById('addNew');
 const outputTable = document.getElementById('output');
 
 addFriendButton.addEventListener('click', () => {
-    const newFriend = addFriendInput.value;
-    if (newFriend.trim() !== '') {
-        myArray.push(newFriend);
-        buildPageContent();
-        addFriendInput.value = ''; 
+    const newFriend = addFriendInput.value.trim();
+    
+    if (newFriend !== '' && /^[a-zA-Z]+$/.test(newFriend)) {
+        if (!myArray.includes(newFriend)) {
+            myArray.push(newFriend);
+            buildPageContent();
+            addFriendInput.value = '';
+        } else {
+            alert('Name already exists!');
+        }
+    } else {
+        alert('Please enter a valid name (letters only).');
     }
 });
 
 function buildPageContent() {
     outputTable.innerHTML = '';
     myArray.forEach((person, index) => {
-        createTableRow(index, person);
+        const formattedName = person.charAt(0).toUpperCase() + person.slice(1).toLowerCase();
+        createTableRow(index, formattedName);
     });
 }
 
