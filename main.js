@@ -25,6 +25,7 @@ function createTableRow(index, name) {
     
     const indexCell = document.createElement('td');
     indexCell.textContent = index + 1;
+    // indexCell.style.backgroundColor = "#ddd";
     tableRow.appendChild(indexCell);
     
     const nameCell = document.createElement('td');
@@ -33,6 +34,8 @@ function createTableRow(index, name) {
     
     const voteCell = document.createElement('td');
     voteCell.textContent = 0;
+    voteCell.style.backgroundColor = "#ddd";
+    voteCell.classList.add("pressed");
     tableRow.appendChild(voteCell);
 
     outputTable.appendChild(tableRow);
